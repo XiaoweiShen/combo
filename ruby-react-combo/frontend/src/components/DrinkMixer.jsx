@@ -105,7 +105,7 @@ export default function DrinkMixer(){
     <div>
       <h2>Start from here?</h2>
       <ul>
-      {first_ing_array_list}
+      {/* {first_ing_array_list} */}
       </ul>
 
       <h2>available drink</h2>
