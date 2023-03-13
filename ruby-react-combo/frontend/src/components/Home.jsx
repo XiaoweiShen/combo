@@ -24,7 +24,7 @@ export default () => (
             className="btn btn-lg custom-button"
             role="button"
           >
-            Start Making Drinks
+            <span className="button-text">Start Making Drinks</span>
           </Link>
         </div>
       </div>
