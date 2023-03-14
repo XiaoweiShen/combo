@@ -40,8 +40,8 @@ export default function Drink() {
 
   return (
     
-    <div>
-      <h1>{drink.name}</h1>
+    <div class="drink-page">
+      <h1 class="drink-h1">{drink.name}</h1>
       <div class="drink-section">
 
         <div class="drink-section-ing">
@@ -67,7 +67,7 @@ export default function Drink() {
       </div>
       <br/>
       <h2 class="drink-recipe">RECIPE </h2>
-      <p>{drink.instruction}</p>
+      <p class="drink-instruction">{drink.instruction}</p>
       <p class="drink-tags">Tags: {drink.tags}</p>
     </div>
   );
