@@ -5,15 +5,12 @@ class DrinksController < ApplicationController
 
   end
 
-#  def check 
-#   @check = DrinkIngredient.where("drink_id=?",params[:id]).pluck(:ingredient_id,:ingredient_name,:measure);         
-#   render json: @check
-#  end
-
-def check 
-  @drink_ingredients = DrinkIngredient.where(drink_id: params[:id]).pluck(params[:id], :ingredient_name, :measure, :ingredient_id)
-  render json: @drink_ingredients
-end
+  def check 
+    @drink_ingredients = DrinkIngredient.where(drink_id: params[:id]).pluck(params[:id], :ingredient_name, :measure, :ingredient_id)
+    render json: @drink_ingredients
+  end
+  
+     
   
   def show
    @drink = Drink.find(params[:id])
