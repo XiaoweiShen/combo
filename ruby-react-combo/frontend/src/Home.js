@@ -26,6 +26,6 @@ export const Home = ()=>{
           {drink_list}
         </ul>
      </div>
-         
+        
     </div>)
 }

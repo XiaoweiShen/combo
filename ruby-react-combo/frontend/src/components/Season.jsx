@@ -1,22 +1,16 @@
 import * as React from 'react';
 import { Card, List, Col, Row } from 'antd';
-import axios from "axios"
+
 import { useState, useEffect } from "react";
+import useApplicationData from '../hooks/useApplicationData';
 
 const App = () => {
+  const {state} = useApplicationData();
+      
+  const filteredDrinks = state.drinks.filter((drink) => drink.tags.includes("Winter"));
+      
 
-  const [drinks, setDrinks] = useState([]);
-
-  useEffect(() => {
-    // axios.get("/api/drinks").then((res) => {
-    axios.get("/drinks.json").then((res) => {
-      const filteredDrinks = res.data.filter((drink) => drink.tags.includes("Winter"));
-      setDrinks(filteredDrinks)
-    });
-  }, []);
-
-
-  const drinkList = drinks.slice(0, 4).map((drink) => {
+  const drinkList = filteredDrinks.slice(0, 4).map((drink) => {
     return (
       <Col key={drink.id} xs={24} sm={12} md={6}>
         <Card title={drink.name}>
