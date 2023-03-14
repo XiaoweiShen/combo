@@ -56,6 +56,8 @@
 	opacity: 0.4;
 }
 
+
+// Homepage image
 .homepage-image-container {
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -70,11 +72,11 @@
 }
 
 
-/* .homepage-image-container img {
-	object-fit: cover;
-	width: 100%;
-	height: 100%;
-} */
+// .homepage-image-container img {
+// 	object-fit: cover;
+// 	width: 100%;
+// 	height: 100%;
+// }
 
 .home-link {
 	text-decoration: none;
@@ -88,8 +90,8 @@
 .drinks-container {
 	margin-top: 50px;
 	margin-bottom: 50px;
-	/* margin-right: 10px;
-	margin-left: 10px; */
+	// margin-right: 10px;
+	// margin-left: 10px;
 	background-color: lightgrey;
 }
 
@@ -108,6 +110,14 @@
 	height: 100%;
 	width: 100%;
 }
+
+//Popular Drinks
+.drinks-container {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+  }
+
 
 /* Drink Mixer */
 .mixer-1 {
