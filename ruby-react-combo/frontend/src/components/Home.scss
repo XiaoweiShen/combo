@@ -56,25 +56,27 @@
 	opacity: 0.4;
 }
 
+
+// Homepage image
 .homepage-image-container {
 	margin-top: 50px;
 	margin-bottom: 50px;
-	height: 70vh;
+	height: 80vh;
 	background-position: center;
 	background-image: url('/images/homepage.jpg');
 	background-size: cover;
 }
 
 .homepage-image-text {
-	padding-top: 60px;
+	padding-top: 100px;
 }
 
 
-/* .homepage-image-container img {
-	object-fit: cover;
-	width: 100%;
-	height: 100%;
-} */
+// .homepage-image-container img {
+// 	object-fit: cover;
+// 	width: 100%;
+// 	height: 100%;
+// }
 
 .home-link {
 	text-decoration: none;
@@ -88,9 +90,9 @@
 .drinks-container {
 	margin-top: 50px;
 	margin-bottom: 50px;
-	/* margin-right: 10px;
-	margin-left: 10px; */
-	background-color: lightgrey;
+	// margin-right: 10px;
+	// margin-left: 10px;
+	// background-color: lightgrey;
 }
 
 .home-cards {
@@ -109,22 +111,12 @@
 	width: 100%;
 }
 
-/* Drink Mixer */
-.mixer-1 {
-	background-color: aquamarine;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-}
-
-.mixer-2 {
-	background-color: bisque;
-}
-
-.mixer-3 {
-	background-color: beige;
-}
+//Popular Drinks
+.drinks-container {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+  }
 
 /* Drink List */
 .drink-list-img {

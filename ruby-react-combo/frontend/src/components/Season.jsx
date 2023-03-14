@@ -1,20 +1,18 @@
 import * as React from 'react';
-import { Card, List, Col, Row } from 'antd';
-
-import { useState, useEffect } from "react";
+import { Card, Col, Row } from 'antd';
 import useApplicationData from '../hooks/useApplicationData';
+const { Meta } = Card;
 
 const App = () => {
   const {state} = useApplicationData();
       
   const filteredDrinks = state.drinks.filter((drink) => drink.tags.includes("Winter"));
-      
 
   const drinkList = filteredDrinks.slice(0, 4).map((drink) => {
     return (
       <Col key={drink.id} xs={24} sm={12} md={6}>
-        <Card title={drink.name}>
-          <img className='drink-card-img' src={drink.image} />
+        <Card  hoverable cover={<img className='drink-card-img' src={drink.image} />}>
+          <Meta title={drink.name}/>
         </Card>
       </Col>
     );
