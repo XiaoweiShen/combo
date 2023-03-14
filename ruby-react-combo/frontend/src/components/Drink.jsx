@@ -39,7 +39,7 @@ export default function Drink() {
   }
 
   return (
-    
+
     <div>
       <h1>{drink.name}</h1>
       <div class="drink-section">
@@ -58,14 +58,14 @@ export default function Drink() {
                     <img class="ingredient-img" src={`http://${item.image_s}`} alt={item.name} key={item.id} />
                   ))}
                 </li>
-                
+
               ))}
-              
+
             </div>
           </ul>
         </div>
       </div>
-      <br/>
+      <br />
       <h2 class="drink-recipe">RECIPE </h2>
       <p>{drink.instruction}</p>
       <p class="drink-tags">Tags: {drink.tags}</p>
