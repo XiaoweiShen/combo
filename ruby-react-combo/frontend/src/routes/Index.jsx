@@ -12,6 +12,7 @@ export default (
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/Drinks" element={<Drinks />} />
+			<Route path="/Drinks/:id" element={<Drinks />} />
 			<Route path="/DrinkMixer" element={<DrinkMixer />} />
 			<Route path="/DrinkList" element={<DrinkList />} />
 		</Routes>
