@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import useApplicationData from "../hooks/useApplicationData";
 import "./DrinkMixer.scss"
@@ -29,7 +29,9 @@ export default function DrinkMixer() {
     })
   }, []);
 
-  const showDrink = (id) => { };//go to show drink page.....
+  const showDrink = (id) => { return (
+    <Link to={`/drinks/${id}`}></Link>
+  )};//go to show drink page.....
 
   const handleSelect = (id) => {
     let ing_array = [];
@@ -64,7 +66,7 @@ export default function DrinkMixer() {
     if (ing1[0]) {
       return (
         <Card title={<h4 style={{ fontSize: '13px', whiteSpace: 'normal' }}>{ing1[0].name}</h4>} hoverable style={{ width: 150 }} key={ing1[0].id}>
-          {/* <p>{ing1[0].name}</p> */}
+          {/* eslint-disable */}
           <img src={"http://" + `${ing1[0].image_s}`} onClick={() => handleSelect(ing1[0].id)}></img>
         </Card>)
     }
@@ -82,12 +84,10 @@ export default function DrinkMixer() {
 
   const user_choice_list = userchoices.map(it => {
     const ing = ingredients.filter(item => item.id === it);
-    //console.log(".......",ing[0]);
     if (ing[0]) {
       return (
         <Card title={ing[0].name} hoverable style={{ width: 150 }} key={ing[0].id}>
-          {/* <p>{ing[0].name}</p> */}
-          <img src={"http://" + `${ing[0].image_s}`} onClick={() => handleSelect(ing[0].id)}></img>
+           <img src={"http://" + `${ing[0].image_s}`} onClick={() => handleSelect(ing[0].id)}></img>
         </Card>)
     }
   })
@@ -95,11 +95,16 @@ export default function DrinkMixer() {
   const drinklist = mixdata.drink_ingredient.map(it => {
     const drk = drinks.filter(item => item.id == it.id);
     return (
-      <Card hoverable key={it.id} style={{ width: 215, }} cover={<img src={drk[0].image} width="150" onClick={() => showDrink(it.id)}></img>}>
-        {/* <p>{it.id} {drk[0].name}--{drk[0].tags}</p> */}
-        <Meta
+      <Card hoverable key={it.id} style={{ width: 215, }} 
+        cover={
+          <Link to={`/drinks/${it.id}`}>
+             <img href={`drinks/${it.id}`} src={drk[0].image}  width="150"></img>
+          </Link>
+             }>
+       <Meta
           title={drk[0].name}
           description={drk[0].tags}
+          
         />
       </Card>
     )
