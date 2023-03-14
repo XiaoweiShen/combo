@@ -1,0 +1,9 @@
+
+<h1>Ingredients#index</h1>
+<h2><%= link_to "Go to drinks", drinks_path%></h2>
+<div class = ingredient_list>
+<% @ingredients.each do |i|%>
+    <img src = <%= i[:image]%> title= "<%= i[:name]%>" >
+    <i><%=i[:name]%></i>
+    <%end %>
+</div>

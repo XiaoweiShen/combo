@@ -1,0 +1,12 @@
+<h1>Drinks#index</h1>
+<h2><%= link_to "Go to ingredients", ingredients_path %></h2>
+<div class = drink_list>
+
+<% @drinks.each do |d|%>
+      <img src = "<%=d[:image]%>" title= "<%= d[:name]%>" width = "250" >
+      <i><%=d[:name]%> </i>
+      <i>"<%=d[:tags]%>"</i>
+      <%end%>
+  </div>
+<button> <H1>Load more ....</H1></button>
+

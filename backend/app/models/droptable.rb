@@ -1,0 +1,2 @@
+class Droptable < ApplicationRecord
+end

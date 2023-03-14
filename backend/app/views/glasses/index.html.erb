@@ -1,0 +1,8 @@
+<h1>Glasses#index</h1>
+
+<div class = glass_list>
+      <% @glasses.each do |g|%>
+      <img src="<%=g[:image]%>" title= "<%= g[:name]%>" >
+       <i><%=g[:name]%></i>
+   <%end %>
+  </div>
