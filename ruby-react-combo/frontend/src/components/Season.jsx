@@ -1,14 +1,11 @@
 import * as React from 'react';
-import { Card, List, Col, Row } from 'antd';
-
-import { useState, useEffect } from "react";
+import { Card, Col, Row } from 'antd';
 import useApplicationData from '../hooks/useApplicationData';
 
 const App = () => {
   const {state} = useApplicationData();
       
   const filteredDrinks = state.drinks.filter((drink) => drink.tags.includes("Winter"));
-      
 
   const drinkList = filteredDrinks.slice(0, 4).map((drink) => {
     return (
