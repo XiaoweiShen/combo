@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Season from "./Season";
 import TopDrinks from "./TopDrinks";
+import LiveSearch from "./LiveSearch";
 import "./Home.scss"
 
+
+/* eslint-disable */
 export default () => (
   <div>
 
@@ -27,6 +30,13 @@ export default () => (
             <span className="button-text">Start Making Drinks</span>
           </Link>
         </div>
+      </div>
+    </div>
+
+    <div className="drinks-container">
+      <div className="home-cards">
+        <h2>Search what your want </h2>
+        <LiveSearch />
       </div>
     </div>
 

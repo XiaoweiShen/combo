@@ -1,5 +1,5 @@
 /* eslint-disable */
-  
+
 const includeAll = (array,sub_array)=>{
     return sub_array.every(item=>array.includes(item));
   }
