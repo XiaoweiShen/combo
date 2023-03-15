@@ -1,24 +1,38 @@
+import { Card } from "antd";
+import "./Drinks.scss"
 import axios from "axios";
 import React from "react";
-import {Route, Link, Routes, useParams} from 'react-router-dom';
+import { Route, Link, Routes, useParams } from 'react-router-dom';
 import useApplicationData from "../hooks/useApplicationData";
+const { Meta } = Card;
+
+
 
 
 export default function Drinks() {
-  const {state} = useApplicationData();
+  const { state } = useApplicationData();
   const drinks = [...state.drinks];
 
   const drinkList = drinks.map(drink => (
-    <li key={drink.id}>
-      <Link to={`/drinks/${drink.id}`}>
-        <img src={drink.image} width="200" alt={drink.name} />
-        <p>{drink.name} - {drink.tags}</p>
-      </Link>
-    </li>
+    <Card key={drink.id} hoverable style={{ width: 200 }}
+      cover={
+        <Link to={`/drinks/${drink.id}`}>
+          <img src={drink.image} width="200" alt={drink.name} />
+        </Link>
+      }
+    >
+
+
+      <Meta
+        title={drink.name}
+        description={drink.tags}
+      />
+
+    </Card>
   ));
 
   return (
-    <div>
+    <div className="drink-list-container">
       <h1>Drink list</h1>
         <ul>
           {drinkList}
