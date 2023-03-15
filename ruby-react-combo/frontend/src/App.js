@@ -2,10 +2,10 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import './App.css';
 // import { Home } from "./Home";
 import Home from "./components/Home";
+import Drink from "./components/Drink"
 import Drinks from "./components/Drinks";
 import Navigation from "./components/Navigation";
 import DrinkMixer from "./components/DrinkMixer";
-import Drink from "./components/Drink";
 
 function App() {
 	return (
