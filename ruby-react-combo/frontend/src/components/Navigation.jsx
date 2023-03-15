@@ -78,7 +78,7 @@ export default function SearchAppBar() {
             variant="h"
             noWrap
             component="div"
-            style={{marginRight: '20px'}}
+            style={{ fontSize: '18px', marginRight: '20px' }}
           >
             <a className='home-link' href='/drinkmixer'>Mixer</a>
           </Typography>
@@ -87,6 +87,7 @@ export default function SearchAppBar() {
             variant="h"
             noWrap
             component="div"
+            style={{ fontSize: '18px' }}
           >
             <a className='home-link' href='/drinks'>Drinks</a>
           </Typography>
