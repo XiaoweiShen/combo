@@ -4,21 +4,16 @@ import Home from "../components/Home";
 import Drinks from "../components/Drinks";
 import Navigation from "../components/Navigation";
 import DrinkMixer from "../components/DrinkMixer";
-import DrinkList from "../components/DrinkList";
-import Drink from "../components/Drink"; // Add this line
+import Drink from "../components/Drink";
 
-export default function App() {
-  return (
-    <Router>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/DrinkMixer" element={<DrinkMixer />} />
-        <Route path="/DrinkList" element={<DrinkList />} />
-        <Route path="/Drinks" element={<Drinks />} />				
-        <Route path="/Drinks/:id" element={<Drink />} /> 
-      </Routes>
-    </Router>
-  );
-}
-
+export default (
+	<Router>
+		<Navigation />
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/Drinks" element={<Drinks />} />
+			<Route path="/Drinks/:id" element={<Drink />} />
+			<Route path="/DrinkMixer" element={<DrinkMixer />} />
+		</Routes>
+	</Router>
+);
