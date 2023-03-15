@@ -66,7 +66,7 @@ export default function DrinkMixer()  {
     const ing1 = ingredients.filter(item => item.id == it);
     if (ing1[0]) {
       return (
-        <Card title={<h4 style={{ fontSize: '13px', whiteSpace: 'normal' }}>{ing1[0].name}</h4>} hoverable style={{ width: 150 }} key={ing1[0].id}>
+        <Card title={<h4 style={{ fontSize: '13px', whiteSpace: 'normal' }}>{ing1[0].name}</h4>} hoverable style={{ width: 150, margin: '5px' }} key={ing1[0].id}>
           {/* <p>{ing1[0].name}</p> */}
           <img src={"http://" + `${ing1[0].image_s}`} onClick={() => handleSelect(ing1[0].id)}></img>
         </Card>)
@@ -76,7 +76,7 @@ export default function DrinkMixer()  {
   const ingredientlist = mixdata.available_ingredient_list.map(it => {
     const ing = ingredients.filter(item => item.id == it);
     return (
-      <Card title={<h4 style={{ fontSize: '13px', whiteSpace: 'normal' }}>{ing[0].name}</h4>} hoverable style={{ width: 150 }} key={ing[0].id}>
+      <Card title={<h4 style={{ fontSize: '13px', whiteSpace: 'normal' }}>{ing[0].name}</h4>} hoverable style={{ width: 150, margin: '5px' }} key={ing[0].id}>
         {/* <p>{ing[0].name}</p> */}
         <img src={"http://" + `${ing[0].image_s}`} onClick={() => handleSelect(ing[0].id)}></img>
       </Card>
@@ -88,7 +88,7 @@ export default function DrinkMixer()  {
     //console.log(".......",ing[0]);
     if (ing[0]) {
       return (
-        <Card title={ing[0].name} hoverable style={{ width: 150 }} key={ing[0].id}>
+        <Card title={ing[0].name} hoverable style={{ width: 150, margin: '5px' }} key={ing[0].id}>
           {/* <p>{ing[0].name}</p> */}
           <img src={"http://" + `${ing[0].image_s}`} onClick={() => handleSelect(ing[0].id)}></img>
         </Card>)
@@ -98,10 +98,10 @@ export default function DrinkMixer()  {
   const drinklist = mixdata.drink_ingredient.map(it => {
     const drk = drinks.filter(item => item.id == it.id);
     return (
-      <Card hoverable key={it.id} style={{ width: 215, }} 
+      <Card hoverable key={it.id} style={{ width: 200, margin: '5px' }} 
         cover={
           <Link to={`/drinks/${it.id}`}>
-             <img href={`drinks/${it.id}`} src={drk[0].image}  width="215"></img>
+             <img href={`drinks/${it.id}`} src={drk[0].image}  width="200"></img>
           </Link>
              }>
 
@@ -137,8 +137,6 @@ export default function DrinkMixer()  {
       <ul>
         {drinklist}
       </ul>
-
-
 
     </div>
   );
