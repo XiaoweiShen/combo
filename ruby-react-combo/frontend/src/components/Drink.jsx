@@ -39,75 +39,37 @@ export default function Drink() {
   }
 
   return (
-
-    <div className="recipe-card">
-      
+<div className="recipe-container">
+  <div className="recipe-card">
+    <div className="drink-image">
+      <img src={drink.image} alt={drink.name} />
+    </div>
+    <div className="drink-text">
       <div className="drink-title">
         {drink.name}
+        
       </div>
-
-      <div className="drink-image">
-        <img src={drink.image} width="200" alt={drink.name} />
-      </div>
-
+      <p class="drink-tags">Tags: {drink.tags}</p>
       <div className="drink-ingredients">
-        {ingredients.map((ingredient, index) => (
-          <li key={index}>
-            {ingredient[2]} {ingredient[1]}
-            {state.ingredients.filter(item => item.id === ingredient[3]).map(item => (
-              <img class="ingredient-img" src={`http://${item.image_s}`} alt={item.name} key={item.id} />
-            ))}
-          </li>
-
-        ))}
+        <h3>Ingredients:</h3>
+        <ul>
+          {ingredients.map((ingredient, index) => (
+            <li key={index}>
+              {ingredient[2]} {ingredient[1]}
+              {state.ingredients.filter(item => item.id === ingredient[3]).map(item => (
+                <img class="ingredient-img" src={`http://${item.image_s}`} alt={item.name} key={item.id} title={item.description}/>
+              ))}
+            </li>
+          ))}
+        </ul>
       </div>
-
-
       <div className="drink-recipe">
-        {drink.instruction}
+        <h3>Instructions:</h3>
+        <p>{drink.instruction}</p>
       </div>
-
-
     </div>
-
-
-
-
-
-    //   <div class="drink-page">
-    //     <h1 class="drink-h1">{drink.name}</h1>
-    //     <div class="drink-section">
-
-    //       <div class="drink-section-ing">
-    //         <img src={drink.image} width="200" alt={drink.name} />
-
-    //         <ul class="ingredient-section">
-
-    //           <h2 class="ingredient-header">INGREDIENTS</h2>
-    //           <div class="ingredient-list">
-    //             {ingredients.map((ingredient, index) => (
-    //               <li key={index}>
-    //                 {ingredient[2]} {ingredient[1]}
-    //                 {state.ingredients.filter(item => item.id === ingredient[3]).map(item => (
-    //                   <img class="ingredient-img" src={`http://${item.image_s}`} alt={item.name} key={item.id} />
-    //                 ))}
-    //               </li>
-
-    //             ))}
-
-    //           </div>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //     <br/>
-
-    //     <h2 class="drink-recipe">RECIPE </h2>
-    //     <p class="drink-instruction">{drink.instruction}</p>
-    //     <p class="drink-tags">Tags: {drink.tags}</p>
-
-    //   </div>
-
-
+  </div>
+</div>
 
   );
 }
