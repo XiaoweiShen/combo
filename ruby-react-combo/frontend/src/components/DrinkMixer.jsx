@@ -1,5 +1,5 @@
 import React, { useState, useEffect,  } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import useApplicationData from "../hooks/useApplicationData";
 import "./DrinkMixer.scss"
@@ -30,7 +30,9 @@ export default function DrinkMixer()  {
     })
   }, []);
 
-  const showDrink = (id) => { };//go to show drink page.....
+  // const showDrink = (id) => { return (
+  //   <Link to={`/drinks/${id}`}></Link>
+  // )};//go to show drink page.....
 
   const handleSelect = (id) => {
     let ing_array = [];
@@ -96,12 +98,18 @@ export default function DrinkMixer()  {
   const drinklist = mixdata.drink_ingredient.map(it => {
     const drk = drinks.filter(item => item.id == it.id);
     return (
-      <Card hoverable key={it.id} style={{ width: 215, }} cover={<img src={drk[0].image} width="150" onClick={() => showDrink(it.id)}></img>}>
-        {/* <p>{it.id} {drk[0].name}--{drk[0].tags}</p> */}
-        <Meta
+      <Card hoverable key={it.id} style={{ width: 215, }} 
+        cover={
+          <Link to={`/drinks/${it.id}`}>
+             <img href={`drinks/${it.id}`} src={drk[0].image}  width="215"></img>
+          </Link>
+             }>
+
+       <Meta
           title={drk[0].name}
           description={drk[0].tags}
         />
+
       </Card>
     )
   })
