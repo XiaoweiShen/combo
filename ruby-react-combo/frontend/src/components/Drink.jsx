@@ -39,37 +39,76 @@ export default function Drink() {
   }
 
   return (
-    
-    <div class="drink-page">
-      <h1 class="drink-h1">{drink.name}</h1>
-      <div class="drink-section">
 
-        <div class="drink-section-ing">
-          <img src={drink.image} width="200" alt={drink.name} />
-
-          <ul class="ingredient-section">
-
-            <h2 class="ingredient-header">INGREDIENTS</h2>
-            <div class="ingredient-list">
-              {ingredients.map((ingredient, index) => (
-                <li key={index}>
-                  {ingredient[2]} {ingredient[1]}
-                  {state.ingredients.filter(item => item.id === ingredient[3]).map(item => (
-                    <img class="ingredient-img" src={`http://${item.image_s}`} alt={item.name} key={item.id} />
-                  ))}
-                </li>
-                
-              ))}
-              
-            </div>
-          </ul>
-        </div>
+    <div className="recipe-card">
+      
+      <div className="drink-title">
+        {drink.name}
       </div>
-      <br/>
-      <h2 class="drink-recipe">RECIPE </h2>
-      <p class="drink-instruction">{drink.instruction}</p>
-      <p class="drink-tags">Tags: {drink.tags}</p>
+
+      <div className="drink-image">
+        <img src={drink.image} width="200" alt={drink.name} />
+      </div>
+
+      <div className="drink-ingredients">
+        {ingredients.map((ingredient, index) => (
+          <li key={index}>
+            {ingredient[2]} {ingredient[1]}
+            {state.ingredients.filter(item => item.id === ingredient[3]).map(item => (
+              <img class="ingredient-img" src={`http://${item.image_s}`} alt={item.name} key={item.id} />
+            ))}
+          </li>
+
+        ))}
+      </div>
+
+
+      <div className="drink-recipe">
+        {drink.instruction}
+      </div>
+
+
     </div>
+
+
+
+
+
+    //   <div class="drink-page">
+    //     <h1 class="drink-h1">{drink.name}</h1>
+    //     <div class="drink-section">
+
+    //       <div class="drink-section-ing">
+    //         <img src={drink.image} width="200" alt={drink.name} />
+
+    //         <ul class="ingredient-section">
+
+    //           <h2 class="ingredient-header">INGREDIENTS</h2>
+    //           <div class="ingredient-list">
+    //             {ingredients.map((ingredient, index) => (
+    //               <li key={index}>
+    //                 {ingredient[2]} {ingredient[1]}
+    //                 {state.ingredients.filter(item => item.id === ingredient[3]).map(item => (
+    //                   <img class="ingredient-img" src={`http://${item.image_s}`} alt={item.name} key={item.id} />
+    //                 ))}
+    //               </li>
+
+    //             ))}
+
+    //           </div>
+    //         </ul>
+    //       </div>
+    //     </div>
+    //     <br/>
+
+    //     <h2 class="drink-recipe">RECIPE </h2>
+    //     <p class="drink-instruction">{drink.instruction}</p>
+    //     <p class="drink-tags">Tags: {drink.tags}</p>
+
+    //   </div>
+
+
+
   );
 }
 
