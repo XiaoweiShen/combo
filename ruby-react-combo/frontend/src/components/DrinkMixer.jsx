@@ -1,5 +1,5 @@
 import React, { useState, useEffect,  } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import useApplicationData from "../hooks/useApplicationData";
 import "./DrinkMixer.scss"
@@ -30,7 +30,9 @@ export default function DrinkMixer()  {
     })
   }, []);
 
-  const showDrink = (id) => { };//go to show drink page.....
+  const showDrink = (id) => { return (
+    <Link to={`/drinks/${id}`}></Link>
+  )};//go to show drink page.....
 
   const handleSelect = (id) => {
     let ing_array = [];
