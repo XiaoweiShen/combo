@@ -1,5 +1,4 @@
-
-  Rails.application.routes.draw do
+Rails.application.routes.draw do
  
     resources :drinks,only: [:index, :show, :edit, :update,:check_ingredients]
     resources :ingredients,only: [:index, :show]

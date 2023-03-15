@@ -17,5 +17,3 @@ export default (
 		</Routes>
 	</Router>
 );
-
-// redirect request to old page

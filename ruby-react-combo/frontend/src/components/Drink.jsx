@@ -40,8 +40,8 @@ export default function Drink() {
 
   return (
     
-    <div>
-      <h1>{drink.name}</h1>
+    <div class="drink-page">
+      <h1 class="drink-h1">{drink.name}</h1>
       <div class="drink-section">
 
         <div class="drink-section-ing">
@@ -67,7 +67,7 @@ export default function Drink() {
       </div>
       <br/>
       <h2 class="drink-recipe">RECIPE </h2>
-      <p>{drink.instruction}</p>
+      <p class="drink-instruction">{drink.instruction}</p>
       <p class="drink-tags">Tags: {drink.tags}</p>
     </div>
   );
@@ -75,29 +75,4 @@ export default function Drink() {
 
 
 
-// import axios from "axios";
-// import React from "react";
-// import { useParams } from "react-router-dom";
-// import useApplicationData from "../hooks/useApplicationData";
 
-
-// export default function DrinkDetails({ match }) {
-
-//   const params = useParams();
-//   axios.get("3001/drinks/params.id.json")
-//   const { state } = useApplicationData();
-//   const drinkId = match.params.id;
-//   const drink = state.drinks.find((drink) => drink.id === parseInt(drinkId));
-
-//   if (!drink) {
-//     return <div>Drink not found.</div>;
-//   }
-
-//   return (
-//     <div>
-//       <h2>{drink.name}</h2>
-//       <img src={drink.image} alt={drink.name} />
-//       <p>{drink.description}</p>
-//     </div>
-//   );
-// }

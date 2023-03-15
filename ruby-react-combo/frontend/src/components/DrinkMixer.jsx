@@ -1,4 +1,4 @@
-import React, { useState, useEffect, } from "react";
+import React, { useState, useEffect,  } from "react";
 //import { Link } from "react-router-dom";
 import axios from "axios";
 import useApplicationData from "../hooks/useApplicationData";
@@ -11,8 +11,9 @@ const { Meta } = Card;
 let first_ingredient = 1; //this is a original value
 const first_ing_array = [1, 2, 3, 600, 4, 74, 43, 282, 18, 552];
 
-export default function DrinkMixer() {
-  const { state } = useApplicationData();
+
+export default function DrinkMixer()  {
+  const {  state  } = useApplicationData();
   const ingredients = [...state.ingredients];
   const drinks = [...state.drinks];
 
@@ -111,17 +112,17 @@ export default function DrinkMixer() {
 
       <h2>Base</h2>
       <ul>
-        {first_ing_list}
+          {first_ing_list}
       </ul>
 
       <h2>Available Ingredients</h2>
       <ul>
-        {ingredientlist}
+          {ingredientlist}
       </ul>
 
       <h2>Selected Ingredients</h2>
       <ul>
-        {user_choice_list}
+          {user_choice_list}
       </ul>
 
       <h2>Available Drinks</h2>

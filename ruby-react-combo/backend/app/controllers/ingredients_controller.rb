@@ -6,4 +6,9 @@ class IngredientsController < ApplicationController
       format.json { render 'index.json.jbuilder' } # Render the JSON template
     end
   end
+  
+  def show
+    @ingredient = Ingredient.find(params[:id])
+    render json: @ingredient
+  end
 end
