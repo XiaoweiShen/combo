@@ -7,8 +7,8 @@ class IngredientsController < ApplicationController
     end
   end
   
-#   def show
-#     @ingredient = Ingredient.find(params[:id])
-#     render json: @ingredient
-#   end
-# end
+  # def show
+  #   @ingredient = Ingredient.find(params[:id])
+  #   render json: @ingredient
+  # end
+end
