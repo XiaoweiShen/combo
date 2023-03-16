@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from "react";
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -8,6 +8,16 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
+
+
+import Drawer from '@mui/material/Drawer';
+import LiveSearch from "./LiveSearch";
+import "./Navigation.scss"
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,19 +62,61 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+
+  const [open, setOpen] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: 'lightgrey' }}>
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: "dimgray" }}>
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
+
+
+          <Box sx={{ display: 'flex' }}>
+              <SearchIcon
+              
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                sx={{ mr: 2, '&:hover': {
+                  color: 'grey' // change color to blue on hover
+                } }}
+                onClick={handleDrawerOpen} // add onClick prop to open the Drawer
+              >
+                <MenuIcon />
+
+              </SearchIcon>
+
+            <Drawer
+              anchor="top"
+              open={open}
+              onClose={handleDrawerClose} // add onClose prop to close the Drawer
+              sx={{ zIndex: 1200 }}
+            >
+              <Box sx={{ p: 1 }}>
+                <Typography variant="h6" noWrap>
+                  <div className="search-container">
+                    <div className="search-cards">
+                      <h2>Search for a drink</h2>
+                      <LiveSearch />
+                    </div>
+                  </div>
+                </Typography>
+              </Box>
+            </Drawer>
+          </Box>
+
+
           <Typography
             variant="h5"
             noWrap
@@ -78,7 +130,7 @@ export default function SearchAppBar() {
             variant="h"
             noWrap
             component="div"
-            style={{ fontSize: '18px', marginRight: '20px' }}
+            style={{ fontSize: '18px', marginRight: '20px', '&:hover': { color: 'gray' } }}
           >
             <a className='home-link' href='/drinkmixer'>Mixer</a>
           </Typography>
@@ -87,7 +139,7 @@ export default function SearchAppBar() {
             variant="h"
             noWrap
             component="div"
-            style={{ fontSize: '18px' }}
+            style={{ fontSize: '18px', '&:hover': { color: 'gray' } }}
           >
             <a className='home-link' href='/drinks'>Drinks</a>
           </Typography>

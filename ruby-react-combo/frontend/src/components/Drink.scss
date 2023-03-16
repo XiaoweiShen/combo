@@ -15,7 +15,7 @@
   flex-direction: row;
   align-items: center;
   max-width: 800px;
-  background-color: white;
+  background-color: #7955486b;
   border: 1px solid #ccc;
   box-shadow: 5px 5px 10px #ccc;
   padding: 20px;
@@ -45,6 +45,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 10%;
 }
 
 .drink-text {

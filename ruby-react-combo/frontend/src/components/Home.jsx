@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Season from "./Season";
 import TopDrinks from "./TopDrinks";
-import LiveSearch from "./LiveSearch";
+// import LiveSearch from "./LiveSearch";
 import "./Home.scss"
 
 
@@ -19,7 +19,7 @@ export default () => (
         <div className="container secondary-color">
           <h1 className="display-4">Cocktail Shaker</h1>
           <p className="lead">
-            Recipes and more
+            Recipes and more for all your event needs
           </p>
           <hr className="my-4" />
           <Link
@@ -33,12 +33,12 @@ export default () => (
       </div>
     </div>
 
-    <div className="drinks-container">
+    {/* <div className="drinks-container">
       <div className="home-cards">
         <h2>Search what your want </h2>
         <LiveSearch />
       </div>
-    </div>
+    </div> */}
 
     <div className="drinks-container">
       <div className="home-cards">
