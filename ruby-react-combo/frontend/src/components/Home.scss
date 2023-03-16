@@ -1,5 +1,6 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
 
 .bg_primary-color {
 	background-color: #FFFFFF;
@@ -35,7 +36,7 @@
 }
 
 .custom-button:hover .button-text {
-  opacity: 1;
+	opacity: 1;
 }
 
 .hero {
@@ -59,7 +60,7 @@
 
 // Homepage image
 .homepage-image-container {
-	margin-top: 50px;
+	margin-top: 122px;
 	margin-bottom: 50px;
 	height: 80vh;
 	background-position: center;
@@ -71,20 +72,8 @@
 	padding-top: 100px;
 }
 
-
-// .homepage-image-container img {
-// 	object-fit: cover;
-// 	width: 100%;
-// 	height: 100%;
-// }
-
-.home-link {
-	text-decoration: none;
-	color: white;
-}
-
-.home-link:hover {
-	color: inherit;
+.homepage-image-container h1 {
+	font-family: 'Nothing You Could Do', cursive;
 }
 
 .drinks-container {
@@ -104,6 +93,7 @@
 .home-cards h2 {
 	margin-bottom: 20px;
 	padding-top: 20px;
+	font-family: 'Nothing You Could Do', cursive;
 }
 
 .drink-card-img {
@@ -116,7 +106,7 @@
 	text-align: center;
 	padding-top: 20px;
 	padding-bottom: 20px;
-  }
+}
 
 /* Drink List */
 .drink-list-img {

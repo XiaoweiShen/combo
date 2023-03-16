@@ -14,10 +14,10 @@ export default function Drinks() {
   const drinks = [...state.drinks];
 
   const drinkList = drinks.map(drink => (
-    <Card key={drink.id} hoverable style={{ width: 200 }}
+    <Card key={drink.id} hoverable style={{ width: 190, margin: '5px' }}
       cover={
         <Link to={`/drinks/${drink.id}`}>
-          <img src={drink.image} width="200" alt={drink.name} />
+          <img src={drink.image} width="190" alt={drink.name} />
         </Link>
       }
     >

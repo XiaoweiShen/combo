@@ -1,8 +1,14 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+
 .drink-list-container {
+    padding-top: 80px;
     text-align: center;
 }
 
-h1 {
-    padding-top: 20px;
-    margin-top: 20px;
+.drink-list-container h1 {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-family: 'Nothing You Could Do', cursive;
 }

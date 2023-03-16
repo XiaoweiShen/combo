@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+
+
+.search-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.search-cards {
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-bottom: 20px;
+}
+
+.search-cards h2 {
+    font-family: 'Nothing You Could Do', cursive;
+}
+
+.searchbar {
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-bottom: 30px;
+}
+
+.search-button {
+    color: lightgray;
+    border: lightgrey;
+    height: 40px;
+}
+
+.search-button:hover {
+    color: darkgray;
+}
+
+.search-box form {
+    color: darkgray;
+}
+
+.home-link {
+    font-family: 'Nothing You Could Do', cursive;
+    text-decoration: none;
+    color: white;
+}
+
+.home-link:hover {
+    color: inherit;
+}
+
+.home-link-button {
+    text-decoration: none;
+    color: white;
+}
+
+.home-link-button :hover {
+    color: inherit;
+}
