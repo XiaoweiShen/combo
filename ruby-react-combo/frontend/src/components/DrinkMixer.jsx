@@ -9,67 +9,66 @@ const { Meta } = Card;
 
 
 
-const first_ing_array = [1, 2, 3, 4, 43, 282, 18, 416, 498, 52  ];
+const first_ing_array = [1, 2, 3, 4, 43, 282, 18, 416, 498, 52];
 // , 453, 20, 52, 278, 440, 67, 542, 105, 305, 189, 571, 74, 179, 613
 
 export default function DrinkMixer() {
   const { state } = useApplicationData();
   const ingredients = [...state.ingredients];
   const drinks = [...state.drinks];
-  console.log("=========",state);
+  console.log("=========", state);
 
   const [mixdata, setMixdata] = useState({
     drink_ingredient: [],
     available_ingredient_list: [],
-    user_choice:[]
+    user_choice: []
   });
-  
 
-  const {user_choice} = mixdata;
-    
+
+  const { user_choice } = mixdata;
+
 
   useEffect(() => {
     axios.get(`http://localhost:3001/drink_ingredients/2`).then(res => {
       console.log("I did it!!!!!!!!!!!!!");
-      setMixdata({...res.data,user_choice:[]});
+      setMixdata({ ...res.data, user_choice: [] });
       ;
     })
   }, []);
   const handleSelect = (id) => {
-    let ing_array =[];
-    if (user_choice.length>0)
-       {
-        if (!user_choice.includes(id)) {
-          ing_array = [...user_choice,id];  
-          const result = filter2(mixdata, ing_array);
-          setMixdata({...result,user_choice:[...ing_array]})
-          console.log("------add a new id------------", user_choice);
+    let ing_array = [];
+    if (user_choice.length > 0) {
+      if (!user_choice.includes(id)) {
+        ing_array = [...user_choice, id];
+        const result = filter2(mixdata, ing_array);
+        setMixdata({ ...result, user_choice: [...ing_array] })
+        console.log("------add a new id------------", user_choice);
+      }
+      else {
+        if (user_choice.length > 1) {
+          ing_array = [...user_choice].splice(user_choice.indexOf(id), 1);
+          axios.get(`http://localhost:3001/drink_ingredients/${user_choice[0]}`).then(res => {
+            console.log("--------delete an id----------", user_choice);
+            const result = filter2(res.data, ing_array);
+            setMixdata({ ...result, user_choice: [...ing_array] });
+          })
         }
         else {
-          if (user_choice.length > 1) {
-            ing_array = [...user_choice].splice(user_choice.indexOf(id), 1);
-            axios.get(`http://localhost:3001/drink_ingredients/${user_choice[0]}`).then(res => {
-              console.log("--------delete an id----------", user_choice);
-              const result = filter2(res.data, ing_array);
-              setMixdata({...result,user_choice:[...ing_array]});
-            })
-          }
-          else {
-            axios.get(`http://localhost:3001/drink_ingredients/2`).then(res => {
-              console.log("----------no select, start again--------");          
-              setMixdata({...res.data,user_choice:[...ing_array]});
-            })
-          }
+          axios.get(`http://localhost:3001/drink_ingredients/2`).then(res => {
+            console.log("----------no select, start again--------");
+            setMixdata({ ...res.data, user_choice: [...ing_array] });
+          })
         }
       }
-      else{
-        axios.get(`http://localhost:3001/drink_ingredients/${id}`).then(res => {
-                setMixdata({...res.data,user_choice:[id]});
-              }).then(()=>{
-                console.log("------------firsttime-----------",user_choice);
-              })
-      }
-    
+    }
+    else {
+      axios.get(`http://localhost:3001/drink_ingredients/${id}`).then(res => {
+        setMixdata({ ...res.data, user_choice: [id] });
+      }).then(() => {
+        console.log("------------firsttime-----------", user_choice);
+      })
+    }
+
   };
 
 
@@ -79,7 +78,7 @@ export default function DrinkMixer() {
       return (
         <Card title={<h4 style={{ fontSize: '13px', whiteSpace: 'normal' }}>{ing1[0].name}</h4>} hoverable style={{ width: 140, margin: '5px' }} key={ing1[0].id}>
           {/* eslint-disable */}
-          <img src={"http://" + `${ing1[0].image_s}`} onClick={() =>handleSelect(ing1[0].id)}></img>
+          <img src={"http://" + `${ing1[0].image_s}`} onClick={() => handleSelect(ing1[0].id)}></img>
         </Card>)
     }
   })
@@ -99,7 +98,7 @@ export default function DrinkMixer() {
     if (ing[0]) {
       return (
         <Card title={ing[0].name} hoverable style={{ width: 150, margin: '5px' }} key={ing[0].id}>
-           <img src={"http://" + `${ing[0].image_s}`} onClick={() => handleSelect(ing[0].id)}></img>
+          <img src={"http://" + `${ing[0].image_s}`} onClick={() => handleSelect(ing[0].id)}></img>
         </Card>)
     }
   })
@@ -107,16 +106,16 @@ export default function DrinkMixer() {
   const drinklist = mixdata.drink_ingredient.map(it => {
     const drk = drinks.filter(item => item.id == it.id);
     return (
-      <Card hoverable key={it.id} style={{ width: 205, margin: '5px' }} 
+      <Card hoverable key={it.id} style={{ width: 205, margin: '5px' }}
         cover={
           <Link to={`/drinks/${it.id}`}>
-             <img href={`drinks/${it.id}`} src={drk[0].image}  width="205"></img>
+            <img href={`drinks/${it.id}`} src={drk[0].image} width="205"></img>
           </Link>
-             }>
-       <Meta
+        }>
+        <Meta
           title={drk[0].name}
           description={drk[0].tags}
-          
+
         />
       </Card>
     )
@@ -125,24 +124,36 @@ export default function DrinkMixer() {
 
   return (
     <div className="DrinkMixer-container">
-      <h2>Selected Ingredients</h2>
-      <ul>
-        {user_choice_list}
-      </ul>
-      <h2>Base</h2>
-      <ul>
-        {first_ing_list}
-      </ul>
+      <div class='user-choice'>
+        <h2>Selected Ingredients</h2>
+        <ul>
+          {user_choice_list}
+        </ul>
+      </div>
 
-      <h2>Available Ingredients</h2>
-      <ul>
-        {ingredientlist}
-      </ul>
+      <div class='base-ingredient'>
+        <h2>Base</h2>
+        <ul>
+          {first_ing_list}
+        </ul>
+      </div>
 
-      <h2>Available Drinks</h2>
-      <ul>
-        {drinklist}
-      </ul>
+
+      <div class='available-ingredients'>
+        <h2>Available Ingredients</h2>
+        <ul>
+          {ingredientlist}
+        </ul>
+      </div>
+
+
+      <div class='available-drinks'>
+        <h2>Available Drinks</h2>
+        <ul>
+          {drinklist}
+        </ul>
+      </div>
+
     </div>
   );
 }

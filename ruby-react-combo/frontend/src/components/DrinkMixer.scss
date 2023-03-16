@@ -19,11 +19,21 @@ li {
 .DrinkMixer-container {
   margin: 40px;
   padding-top: 40px;
+
+  .user-choice {
+    background-color: rgb(235, 235, 235);
+    padding-bottom: 30px;
+  }
+
+  .available-ingredients {
+    background-color: rgb(235, 235, 235);
+    padding-bottom: 30px;
+  }
 }
 
 h2 {
   text-align: center;
-  padding-top: 40px;
+  padding-top: 35px;
   padding-bottom: 20px;
 }
 
