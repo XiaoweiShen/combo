@@ -124,14 +124,14 @@ export default function DrinkMixer() {
 
   return (
     <div className="DrinkMixer-container">
-      <div class='user-choice'>
+      <div className='user-choice'>
         <h2>Selected Ingredients</h2>
         <ul>
           {user_choice_list}
         </ul>
       </div>
 
-      <div class='base-ingredient'>
+      <div className='base-ingredient'>
         <h2>Base</h2>
         <ul>
           {first_ing_list}
@@ -139,7 +139,7 @@ export default function DrinkMixer() {
       </div>
 
 
-      <div class='available-ingredients'>
+      <div className='available-ingredients'>
         <h2>Available Ingredients</h2>
         <ul>
           {ingredientlist}
@@ -147,7 +147,7 @@ export default function DrinkMixer() {
       </div>
 
 
-      <div class='available-drinks'>
+      <div className='available-drinks'>
         <h2>Available Drinks</h2>
         <ul>
           {drinklist}
