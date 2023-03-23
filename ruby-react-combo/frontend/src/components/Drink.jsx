@@ -49,7 +49,7 @@ export default function Drink() {
         {drink.name}
         
       </div>
-      <p class="drink-tags">Tags: {drink.tags}</p>
+      <p className="drink-tags">Tags: {drink.tags}</p>
       <div className="drink-ingredients">
         <h3>Ingredients:</h3>
         <ul>
@@ -57,7 +57,7 @@ export default function Drink() {
             <li key={index}>
               {ingredient[2]} {ingredient[1]}
               {state.ingredients.filter(item => item.id === ingredient[3]).map(item => (
-                <img class="ingredient-img" src={`http://${item.image_s}`} alt={item.name} key={item.id} title={item.description}/>
+                <img className="ingredient-img" src={`http://${item.image_s}`} alt={item.name} key={item.id} title={item.description}/>
               ))}
             </li>
           ))}
